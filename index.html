@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#ffffff"/>
+<title>쓸모 — 세상에 쓸모 있는 페이지</title>
+<style>
+:root{
+  --bg:#ffffff;--soft:#f7f9fc;--card:#fff;--line:#e8edf3;--txt:#0f172a;--sub:#64748b;
+  --blue:#2563eb;--green:#16a34a;--shadow:0 1px 3px rgba(15,40,80,.06),0 8px 24px rgba(15,40,80,.05);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+/* ===== HERO (흰 화면) ===== */
+.hero{text-align:center;padding:80px 18px 30px}
+.hero .logo{width:74px;height:74px;margin:0 auto;border-radius:20px;
+  background:linear-gradient(135deg,#22c55e,#2563eb);display:flex;align-items:center;justify-content:center;
+  font-size:40px;box-shadow:0 10px 26px rgba(37,99,235,.28)}
+.hero .name{font-size:30px;font-weight:900;letter-spacing:-.02em;margin:18px 0 0}
+.hero .mission{font-size:25px;font-weight:800;letter-spacing:-.02em;margin:14px auto 0;max-width:560px;line-height:1.4}
+.hero .mission b{background:linear-gradient(120deg,#16a34a,#2563eb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .lead{color:var(--sub);font-size:15px;margin:14px auto 0;max-width:520px}
+.scrolldown{display:inline-flex;margin-top:26px;color:var(--sub);font-size:13px;font-weight:700;text-decoration:none;
+  border:1px solid var(--line);padding:9px 16px;border-radius:999px}
+/* ===== SECTION ===== */
+.sec{padding:30px 0 10px}
+.sec h2{font-size:13px;font-weight:800;color:var(--sub);letter-spacing:.02em;margin:0 0 14px;text-transform:uppercase}
+/* ===== TOOL CARDS ===== */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero{padding-top:56px}.hero .mission{font-size:21px}}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:transform .14s,box-shadow .14s,border-color .14s}
+.card.live{cursor:pointer}
+.card.live:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,99,235,.14);border-color:#cfe0ff}
+.card.soon{opacity:.6}
+.card .ico{font-size:32px}
+.card .ct{font-size:18px;font-weight:800;margin:12px 0 5px;display:flex;align-items:center;gap:8px}
+.card .cd{font-size:13.5px;color:var(--sub);flex:1}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.badge{font-size:11.5px;font-weight:800;padding:4px 11px;border-radius:999px}
+.b-live{background:#e9f9ef;color:#0f7a37}.b-soon{background:#eef1f5;color:#7a869a}
+.go{font-size:13.5px;font-weight:800;color:var(--blue)}
+/* ===== AUTH ===== */
+.auth{max-width:420px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:24px;box-shadow:var(--shadow)}
+.auth h3{margin:0 0 3px;font-size:19px;font-weight:900}
+.auth .psub{color:var(--sub);font-size:13px;margin:0 0 16px}
+.tabs{display:flex;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:14px}
+.tabs button{flex:1;border:none;background:none;padding:9px;border-radius:9px;font-size:14px;font-weight:800;color:var(--sub);cursor:pointer}
+.tabs button.on{background:#fff;color:var(--txt);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.field{margin:9px 0}
+.field input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;font-size:14px;font-family:inherit}
+.field input:focus{outline:none;border-color:var(--blue)}
+.btn{appearance:none;width:100%;border:1px solid var(--line);background:#fff;color:var(--txt);
+  padding:12px;border-radius:11px;font-size:14.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff;margin-top:4px}
+.btn.kakao{background:#FEE500;border-color:#FEE500;color:#191600}
+.btn.gap{margin-top:8px}
+.divider{display:flex;align-items:center;gap:10px;color:var(--sub);font-size:12px;margin:14px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.err{color:#dc2626;font-size:13px;min-height:18px;margin:6px 0 2px}
+.muted{color:var(--sub);font-size:12.5px;text-align:center;margin-top:14px}
+.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:12px;padding:11px 13px;font-size:12.5px;margin-top:14px}
+.welcome{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.welcome .hi{font-size:15px;font-weight:800}
+.link{color:var(--blue);cursor:pointer;font-weight:800}
+.foot{text-align:center;color:var(--sub);font-size:12.5px;padding:34px 0 60px}
+</style></head>
+<body>
+<div class="wrap">
+  <!-- 흰 화면 + 취지 -->
+  <header class="hero">
+    <div class="logo">🧰</div>
+    <div class="name">쓸모</div>
+    <div class="mission"><b>세상에 쓸모 있는 페이지를 만들어 본다.</b></div>
+    <div class="lead">필요할 때 진짜 도움이 되는 도구를 하나씩 모아갑니다. 가볍게 둘러보고, 로그인하면 더 많은 기능을 사용할 수 있어요.</div>
+    <a class="scrolldown" href="#tools">어떤 게 있나요? ↓</a>
+  </header>
+
+  <!-- 로그인 / 회원가입 -->
+  <section class="sec">
+    <h2>로그인 · 회원가입</h2>
+    <div class="auth" id="auth"></div>
+  </section>
+
+  <!-- 쓸모 안의 도구들 (설명 + 클릭 이동) -->
+  <section class="sec" id="tools">
+    <h2>쓸모 안에는 이런 게 있어요</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <div class="foot">쓸모 · 세상에 쓸모 있는 페이지를 만들어 본다.</div>
+</div>
+
+<script type="module">
+const SB_URL="__SB_URL__", SB_KEY="__SB_KEY__";
+const configured = SB_URL.indexOf("http")===0;
+let sb=null;
+if(configured){
+  try{ const m=await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'); sb=m.createClient(SB_URL,SB_KEY); }
+  catch(e){ console.warn("supabase load fail",e); }
+}
+const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TOOLS=[
+  {icon:"🏥",title:"지금 여는 병원·약국",desc:"전국에서 지금 이 시간 문 연 병·의원·한의원·약국을 내 위치 기준으로. 응급실·야간·큰 병원·휴일 약국 필터까지.",href:"./health.html",badge:"운영중",live:true},
+  {icon:"🏰",title:"파크 파일럿",desc:"전 세계 디즈니·유니버설 테마파크 플래너. 일정 짜기·요일별 평균 대기시간·테마파크 지도·호텔·중고거래·커뮤니티.",href:"./parkpilot.html",badge:"운영중",live:true},
+  {icon:"➕",title:"더 추가될 예정",desc:"세상에 쓸모 있는 도구를 하나씩 더 담아갈 공간입니다. 아이디어가 있다면 언제든 더해집니다.",href:null,badge:"예정",live:false}
+];
+const auth = document.getElementById("auth");
+const grid = document.getElementById("grid");
+let mode="login", session=null;
+
+function renderGrid(){
+  grid.innerHTML = TOOLS.map(t=>{
+    const inner = `<div class="ico">${t.icon}</div>
+      <div class="ct">${esc(t.title)}</div>
+      <div class="cd">${esc(t.desc)}</div>
+      <div class="row"><span class="badge ${t.live?'b-live':'b-soon'}">${t.live?'● ':''}${t.badge}</span>${t.live?'<span class="go">바로가기 →</span>':''}</div>`;
+    return t.live ? `<a class="card live" href="${t.href}">${inner}</a>`
+                  : `<div class="card soon">${inner}</div>`;
+  }).join("");
+}
+
+function renderAuth(){
+  if(session){
+    const who = esc(session.user.email||"회원");
+    auth.innerHTML = `<div class="welcome"><div class="hi">👋 ${who} 님, 환영해요</div>
+      <button class="btn" style="width:auto;padding:9px 14px" id="logout">로그아웃</button></div>
+      <div class="muted" style="margin-top:12px">로그인된 상태예요. 위의 도구를 바로 이용하세요.</div>`;
+    document.getElementById("logout").onclick=async()=>{ await sb.auth.signOut(); };
+    return;
+  }
+  const signup = mode==="signup";
+  auth.innerHTML = `
+    <div class="tabs">
+      <button class="${signup?'':'on'}" data-m="login">로그인</button>
+      <button class="${signup?'on':''}" data-m="signup">회원가입</button>
+    </div>
+    <h3>${signup?'쓸모 회원가입':'쓸모 로그인'}</h3>
+    <p class="psub">${signup?'한 번 가입하면 쓸모의 모든 도구를 같은 계정으로 이용해요.':'쓸모 계정으로 모든 도구를 이어서 사용하세요.'}</p>
+    <div class="field"><input id="email" type="email" placeholder="이메일" autocomplete="email"></div>
+    <div class="field"><input id="pw" type="password" placeholder="비밀번호 (6자 이상)" autocomplete="${signup?'new-password':'current-password'}"></div>
+    <div class="err" id="err"></div>
+    <button class="btn primary" id="submit">${signup?'가입하기':'로그인'}</button>
+    <div class="divider">또는</div>
+    <button class="btn g" id="google">🇬 구글로 계속</button>
+    <button class="btn g kakao gap" id="kakao">💬 카카오로 계속</button>
+    <div class="muted">${signup?'이미 계정이 있나요? <span class="link" data-m="login">로그인</span>':'계정이 없나요? <span class="link" data-m="signup">회원가입</span>'}</div>
+    ${configured?'':'<div class="notice">⚙️ 지금은 로그인 서버 연결 전이라 둘러보기는 자유롭게 할 수 있어요. 키를 연결하면 실제 가입·로그인이 작동합니다.</div>'}`;
+  bindAuth();
+}
+
+function bindAuth(){
+  auth.querySelectorAll('[data-m]').forEach(el=>el.onclick=()=>{ mode=el.dataset.m; renderAuth(); });
+  const err=auth.querySelector('#err'); const setErr=m=>{ if(err)err.textContent=m||""; };
+  const guard=()=>{ if(!configured){ setErr("아직 로그인 서버가 연결되지 않았어요."); return true; } return false; };
+  auth.querySelector('#submit').onclick=async()=>{
+    if(guard())return; setErr("");
+    const email=auth.querySelector('#email').value.trim(), password=auth.querySelector('#pw').value;
+    if(!email||password.length<6){ setErr("이메일과 6자 이상 비밀번호를 입력하세요."); return; }
+    const {error} = mode==="signup"
+      ? await sb.auth.signUp({email,password})
+      : await sb.auth.signInWithPassword({email,password});
+    if(error){ setErr(error.message); return; }
+    if(mode==="signup"){ auth.querySelector('h3').textContent="확인 메일을 보냈어요"; setErr(""); }
+  };
+  auth.querySelector('#google').onclick=async()=>{ if(guard())return; await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin}}); };
+  auth.querySelector('#kakao').onclick=async()=>{ if(guard())return; await sb.auth.signInWithOAuth({provider:'kakao',options:{redirectTo:location.origin}}); };
+}
+
+async function refresh(){
+  if(configured && sb){
+    const {data:{session:s}} = await sb.auth.getSession();
+    session = s;
+  }
+  renderAuth();
+}
+renderGrid();
+refresh();
+if(configured && sb){ sb.auth.onAuthStateChange((_e,s)=>{ session=s; renderAuth(); }); }
+</script>
+</body></html>
